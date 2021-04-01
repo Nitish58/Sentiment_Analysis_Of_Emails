@@ -1,0 +1,21 @@
+sentences1=a[1:1011,13]
+					mail <- Corpus(VectorSource(sentences1))
+					wordcloud1 <- function(mail)
+					{
+					mail <- tm_map(mail, stripWhitespace)
+					mail <- tm_map(mail, removeNumbers)
+					mail <- tm_map(mail, removePunctuation)
+					mail <- tm_map(mail, removeWords, c("the", "I", "you", "thanks", "from"))
+					wordcloud(mail, scale=c(5,0.5), max.words=300, random.order=FALSE, rot.per=0.35, use.r.layout=FALSE, colors=brewer.pal(8, "Dark2"))
+
+					#return(as.character(mail))
+					}
+                              w <- wordcloud1(mail)
+					
+					d <- data.frame(w)
+					write.table(d,file="C:\\Python27\\ForPython.csv",sep="\n",row.names=FALSE,col.names=FALSE)
+					View(d)
+					wordcloud(w, scale=c(5,0.5), max.words=100, random.order=FALSE, rot.per=0.35, use.r.layout=FALSE, colors=brewer.pal(8, "Dark2"))
+
+					
+					z[[1]][1]
